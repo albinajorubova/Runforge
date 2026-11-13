@@ -1,0 +1,155 @@
+@use "../../styles/mixins" as *;
+
+.sidebar {
+  width: 224px;
+  flex-shrink: 0;
+  padding: 32px 18px 20px;
+  background: var(--color-navy);
+  color: var(--color-white);
+  display: flex;
+  flex-direction: column;
+  min-height: 100svh;
+
+  &Brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 0 11px;
+    color: var(--color-white);
+  }
+
+  &Logo {
+    display: grid;
+    place-items: center;
+    width: 29px;
+    height: 33px;
+    color: var(--color-white);
+
+    svg {
+      width: 29px;
+      height: 29px;
+    }
+  }
+
+  &Wordmark {
+    font-size: 25px;
+    font-weight: 650;
+    letter-spacing: -1.2px;
+
+    span {
+      font-size: 10px;
+      vertical-align: top;
+      margin-left: 4px;
+    }
+  }
+
+  &Navigation {
+    margin-top: 57px;
+  }
+
+  &Label {
+    padding: 0 14px;
+    margin-bottom: 16px;
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--color-white);
+    opacity: 0.6;
+  }
+
+  &Link {
+    display: flex;
+    align-items: center;
+    min-height: 43px;
+    padding: 10px 13px;
+    gap: 12px;
+    margin-bottom: 6px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: default;
+
+    @include hover {
+      opacity: 0.8;
+      color: var(--color-white);
+    }
+
+    &.active {
+      background: var(--color-ivory);
+      color: var(--color-navy);
+      opacity: 1;
+    }
+  }
+
+  &Count {
+    margin-left: auto;
+    font-size: 11px;
+    color: var(--color-slate-gray);
+  }
+
+  &Bottom {
+    margin-top: auto;
+    padding-top: 60px;
+  }
+
+  &Footer {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    padding: 20px 10px 0;
+    margin-top: 15px;
+    border-top: 1px solid var(--color-slate-gray);
+    font-size: 10px;
+    color: var(--color-white);
+    opacity: 0.65;
+
+    > span:last-child {
+      margin-left: auto;
+      color: var(--color-white);
+    }
+  }
+
+  &SystemDot {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--color-success);
+  }
+}
+
+@media (max-width: 1200px) {
+  .sidebar {
+    width: 190px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .sidebar {
+    width: 76px;
+    padding-inline: 12px;
+
+    &Brand {
+      padding: 0;
+      justify-content: center;
+    }
+
+    &Wordmark,
+    &Label,
+    &LinkLabel,
+    &Count,
+    &Footer {
+      display: none;
+    }
+
+    &Link {
+      justify-content: center;
+      padding-inline: 0;
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .sidebar {
+    display: none;
+  }
+}

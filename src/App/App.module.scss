@@ -1,0 +1,34 @@
+.page {
+  display: flex;
+  min-height: 100svh;
+
+  &Workspace {
+    flex: 1;
+    min-width: 0;
+  }
+
+  &Main {
+    max-width: 1560px;
+    margin: 0 auto;
+    padding: 47px 40px;
+  }
+
+  &Note {
+    margin-top: 27px;
+    color: var(--color-slate-gray);
+    font-size: 11px;
+    text-align: center;
+  }
+}
+
+@media (max-width: 1200px) {
+  .pageMain {
+    padding: 36px 24px;
+  }
+}
+
+@media (max-width: 600px) {
+  .pageMain {
+    padding: 30px 18px;
+  }
+}

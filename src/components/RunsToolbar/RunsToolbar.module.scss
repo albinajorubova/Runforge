@@ -1,0 +1,90 @@
+@use "../../styles/mixins" as *;
+
+.runsToolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+
+  &Search {
+    display: flex;
+    align-items: center;
+    flex: 1 1 290px;
+    max-width: 380px;
+    position: relative;
+
+    svg {
+      position: absolute;
+      left: 13px;
+      width: 15px;
+      color: var(--color-slate-gray);
+      pointer-events: none;
+    }
+
+    input {
+      width: 100%;
+      min-width: 0;
+      height: 39px;
+      padding: 0 13px 0 37px;
+      border: 1px solid var(--color-light-gray);
+      border-radius: 6px;
+      background: var(--color-white);
+      font-size: 12px;
+
+      &::placeholder {
+        color: var(--color-slate-gray);
+      }
+    }
+  }
+
+  &Filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+  }
+
+  &Filter {
+    border: 1px solid transparent;
+    border-radius: 5px;
+    background: transparent;
+    padding: 8px 12px;
+    color: var(--color-slate-gray);
+    font-size: 11px;
+    font-weight: 500;
+
+    @include hover {
+      opacity: 0.75;
+    }
+
+    &.selected {
+      background: var(--color-navy);
+      color: var(--color-white);
+
+      @include hover {
+        opacity: 0.85;
+      }
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .runsToolbarSearch {
+    max-width: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .runsToolbar {
+    gap: 13px;
+
+    &Search {
+      flex-basis: 100%;
+    }
+
+    &Filter {
+      padding: 8px 10px;
+    }
+  }
+}

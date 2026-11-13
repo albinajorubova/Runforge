@@ -1,8 +1,12 @@
 @mixin colors {
-  --color-background: #f5f0e7;
-  --color-surface: #fffdf8;
-  --color-ink: #0b1f37;
-  --color-text: #13273e;
-  --color-muted: #647184;
-  --color-border: #d8d4cb;
+  --color-white: #fff;
+  --color-ivory: #f7f6f2;
+  --color-light-gray: #e3e5e6;
+  --color-slate-gray: #737d85;
+  --color-navy: #172b3a;
+
+  --color-info: #356eac;
+  --color-success: #377b53;
+  --color-warning: #8b7127;
+  --color-error: #b35252;
 }

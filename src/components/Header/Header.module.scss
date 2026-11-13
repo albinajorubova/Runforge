@@ -1,0 +1,58 @@
+.header {
+  height: 80px;
+  border-bottom: 1px solid var(--color-light-gray);
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 0 40px;
+  background: var(--color-ivory);
+  &Project {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    color: var(--color-slate-gray);
+    font-size: 12px;
+    strong {
+      font-weight: 550;
+      color: var(--color-navy);
+    }
+  }
+  &Separator {
+    color: var(--color-slate-gray);
+  }
+  &Avatar {
+    margin-left: auto;
+    display: grid;
+    place-items: center;
+    width: 32px;
+    height: 32px;
+    background: var(--color-light-gray);
+    border: 1px solid var(--color-slate-gray);
+    border-radius: 50%;
+    font-size: 10px;
+    font-weight: 650;
+  }
+  &MobileLogo {
+    display: none;
+  }
+}
+
+@media (max-width: 1200px) {
+  .header {
+    padding: 0 24px;
+  }
+}
+
+@media (max-width: 600px) {
+  .header {
+    height: 65px;
+    padding: 0 20px;
+    &MobileLogo {
+      display: block;
+    }
+    &Project {
+      gap: 9px;
+      font-size: 11px;
+    }
+  }
+}

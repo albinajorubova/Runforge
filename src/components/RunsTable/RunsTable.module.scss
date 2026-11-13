@@ -1,0 +1,164 @@
+.runsList {
+  border: 1px solid var(--color-light-gray);
+  border-radius: 8px;
+  background: var(--color-white);
+  overflow: hidden;
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    text-align: left;
+    table-layout: fixed;
+  }
+
+  thead {
+    background: var(--color-ivory);
+
+    th {
+      color: var(--color-slate-gray);
+      font-size: 10px;
+      font-weight: 500;
+      padding: 16px 20px;
+      border-bottom: 1px solid var(--color-light-gray);
+    }
+
+    th:nth-child(1) {
+      width: 27%;
+    }
+    th:nth-child(2) {
+      width: 25%;
+    }
+    th:nth-child(3) {
+      width: 16%;
+    }
+    th:nth-child(4) {
+      width: 22%;
+    }
+    th:nth-child(5) {
+      width: 10%;
+    }
+  }
+
+  tbody {
+    th,
+    td {
+      padding: 23px 20px;
+      border-bottom: 1px solid var(--color-light-gray);
+      overflow-wrap: anywhere;
+    }
+
+    th {
+      font-weight: 500;
+    }
+
+    time {
+      font-size: 11px;
+      color: var(--color-slate-gray);
+      line-height: 1.6;
+    }
+
+    tr:last-child {
+      th,
+      td {
+        border-bottom: 0;
+      }
+    }
+  }
+
+  &Name {
+    display: block;
+    font-size: 12px;
+    font-weight: 600;
+  }
+
+  &Repository {
+    display: block;
+    font-size: 12px;
+    margin-bottom: 7px;
+  }
+
+  &Timezone {
+    font-size: 8px;
+    margin-left: 4px;
+    color: var(--color-slate-gray);
+  }
+
+  &Duration {
+    font-size: 11px;
+    color: var(--color-slate-gray);
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+  }
+
+  &Footer {
+    padding: 16px 20px;
+    border-top: 1px solid var(--color-light-gray);
+    color: var(--color-slate-gray);
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    font-size: 10px;
+    background: var(--color-white);
+  }
+
+  &Cards {
+    display: none;
+  }
+}
+
+@media (max-width: 1200px) {
+  .runsList {
+    thead th,
+    tbody th,
+    tbody td {
+      padding-left: 13px;
+      padding-right: 13px;
+    }
+  }
+}
+
+@media (max-width: 760px) {
+  .runsList {
+    &Table {
+      display: none;
+    }
+    &Cards {
+      display: block;
+    }
+  }
+}
+
+.runId {
+  display: block;
+  margin-top: 7px;
+  font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+  font-size: 10px;
+  font-weight: 400;
+  color: var(--color-slate-gray);
+}
+
+.runBranch {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+  font-size: 10px;
+  color: var(--color-slate-gray);
+  overflow-wrap: anywhere;
+
+  svg {
+    width: 12px;
+    height: 12px;
+    flex-shrink: 0;
+  }
+}
+
+.visuallyHidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}

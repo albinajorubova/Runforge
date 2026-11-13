@@ -1,0 +1,43 @@
+.statusBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 8px;
+  border: 1px solid;
+  border-radius: 5px;
+  font-size: 10px;
+  font-weight: 500;
+  white-space: nowrap;
+  line-height: 1.2;
+
+  &Dot {
+    width: 5px;
+    height: 5px;
+    background: currentColor;
+    border-radius: 50%;
+  }
+
+  &.running {
+    color: var(--color-info);
+    background: color-mix(in srgb, var(--color-info) 10%, var(--color-white));
+    border-color: color-mix(in srgb, var(--color-info) 20%, var(--color-white));
+  }
+
+  &.succeeded {
+    color: var(--color-success);
+    background: color-mix(in srgb, var(--color-success) 10%, var(--color-white));
+    border-color: color-mix(in srgb, var(--color-success) 20%, var(--color-white));
+  }
+
+  &.queued {
+    color: var(--color-warning);
+    background: color-mix(in srgb, var(--color-warning) 10%, var(--color-white));
+    border-color: color-mix(in srgb, var(--color-warning) 20%, var(--color-white));
+  }
+
+  &.failed {
+    color: var(--color-error);
+    background: color-mix(in srgb, var(--color-error) 10%, var(--color-white));
+    border-color: color-mix(in srgb, var(--color-error) 20%, var(--color-white));
+  }
+}
