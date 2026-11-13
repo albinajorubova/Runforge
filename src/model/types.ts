@@ -9,4 +9,8 @@ export type Run = {
   createdAt: string;
   createdLabel: string;
   duration: string;
+  startedAt?: string;
+  finishedAt?: string;
+  logs: string;
+  result?: string;
 };

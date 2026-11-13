@@ -1,0 +1,25 @@
+.requestMessage {
+  padding: 40px 16px;
+  text-align: center;
+
+  h2 {
+    margin-bottom: 12px;
+  }
+
+  p {
+    margin-bottom: 20px;
+  }
+}
+
+.refetchButton {
+  padding: 8px 12px;
+  border: 1px solid var(--color-slate-gray);
+  border-radius: 5px;
+  background: var(--color-light-gray);
+  cursor: pointer;
+
+  &:focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 3px;
+  }
+}

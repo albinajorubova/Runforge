@@ -6,10 +6,14 @@ import { RunCard } from "../RunCard";
 import { StatusBadge } from "../StatusBadge";
 import s from "./RunsTable.module.scss";
 
-export type RunsTableProps = { runs: Run[]; className?: string };
+export type RunsTableProps = {
+  runs: Run[];
+  onSelect: (run: Run) => void;
+  className?: string;
+};
 
 export const RunsTable = (props: RunsTableProps) => {
-  const { runs, className } = props;
+  const { runs, className, onSelect } = props;
 
   return (
     <div className={clsx(s.runsList, className)}>
@@ -31,9 +35,18 @@ export const RunsTable = (props: RunsTableProps) => {
           </thead>
           <tbody>
             {runs.map((run) => (
-              <tr key={run.id}>
+              <tr key={run.id} onClick={() => onSelect(run)}>
                 <th scope="row">
-                  <span className={s.runsListName}>{run.name}</span>
+                  <button
+                    type="button"
+                    className={s.runsListName}
+                    onClick={(event) => {
+                      event.stopPropagation();
+                      onSelect(run);
+                    }}
+                  >
+                    {run.name}
+                  </button>
                   <span className={s.runId}>{run.id}</span>
                 </th>
                 <td>
@@ -57,11 +70,11 @@ export const RunsTable = (props: RunsTableProps) => {
       </div>
       <div className={s.runsListCards}>
         {runs.map((run) => (
-          <RunCard key={run.id} run={run} />
+          <RunCard key={run.id} run={run} onSelect={onSelect} />
         ))}
       </div>
       <footer className={s.runsListFooter}>
-        <span>Showing all {runs.length} runs</span>
+        <span>Showing {runs.length} runs</span>
         <span>All times in UTC</span>
       </footer>
     </div>

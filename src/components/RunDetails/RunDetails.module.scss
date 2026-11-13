@@ -1,0 +1,91 @@
+.dialog {
+  margin: auto;
+  width: min(780px, calc(100% - 32px));
+  max-height: calc(100svh - 48px);
+  padding: 32px;
+  border: 1px solid var(--color-light-gray);
+  border-radius: 14px;
+  color: var(--color-navy);
+  background: var(--color-white);
+  box-shadow: 0 24px 80px #172b3a33;
+  overflow: auto;
+  &::backdrop {
+    background: #172b3a99;
+  }
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  align-items: flex-start;
+  margin-bottom: 20px;
+
+  h2 {
+    font-size: 24px;
+  }
+}
+
+.eyebrow {
+  font:
+    12px ui-monospace,
+    monospace;
+  margin-bottom: 10px;
+}
+
+.closeButton {
+  padding: 10px 14px;
+  border: 1px solid var(--color-light-gray);
+  border-radius: 6px;
+  background: var(--color-ivory);
+  color: inherit;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.section {
+  margin-top: 28px;
+
+  h3 {
+    font-size: 15px;
+    margin-bottom: 12px;
+  }
+}
+
+.logs {
+  background: #172b3a;
+  color: #edf3f7;
+  padding: 20px;
+  border-radius: 8px;
+  overflow: auto;
+  font:
+    12px / 1.9 ui-monospace,
+    SFMono-Regular,
+    Consolas,
+    monospace;
+}
+
+.result {
+  padding: 20px;
+  background: var(--color-ivory);
+  border-radius: 8px;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.closeButton:focus-visible,
+.logs:focus-visible {
+  outline: 2px solid var(--color-info);
+  outline-offset: 3px;
+}
+
+@media (max-width: 600px) {
+  .dialog {
+    padding: 20px;
+  }
+
+  .header {
+    flex-direction: column-reverse;
+    gap: 20px;
+  }
+}

@@ -5,18 +5,32 @@ import { Icon } from "../Icon";
 import { StatusBadge } from "../StatusBadge";
 import s from "./RunCard.module.scss";
 
-export type RunCardProps = { run: Run; className?: string };
+export type RunCardProps = {
+  run: Run;
+  onSelect: (run: Run) => void;
+  className?: string;
+};
 
 export const RunCard = (props: RunCardProps) => {
-  const { run, className } = props;
+  const { run, className, onSelect } = props;
 
   return (
-    <article className={clsx(s.runCard, className)}>
+    <article
+      className={clsx(s.runCard, className)}
+      onClick={() => onSelect(run)}
+    >
       <div className={s.runCardHeading}>
-        <div>
-          <h2>{run.name}</h2>
-          <span className={s.runId}>{run.id}</span>
-        </div>
+        <button
+          type="button"
+          className={s.openButton}
+          onClick={(event) => {
+            event.stopPropagation();
+            onSelect(run);
+          }}
+        >
+          {run.name}
+        </button>
+        <span className={s.runId}>{run.id}</span>
         <StatusBadge status={run.status} />
       </div>
       <p className={s.runCardRepository}>{run.repository}</p>

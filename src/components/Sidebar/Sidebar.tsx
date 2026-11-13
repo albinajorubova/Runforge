@@ -1,17 +1,10 @@
 import clsx from "clsx";
 
-import { Icon, type IconProps } from "../Icon";
+import { navigation } from "../../data/navigation";
+import { Icon } from "../Icon";
 import s from "./Sidebar.module.scss";
 
 export type SidebarProps = { className?: string };
-
-const navigation: { label: string; icon: IconProps["name"] }[] = [
-  { label: "Runs", icon: "runs" },
-  { label: "Projects", icon: "projects" },
-  { label: "Devboxes", icon: "devboxes" },
-  { label: "Previews", icon: "previews" },
-  { label: "Snapshots", icon: "snapshots" },
-];
 
 export const Sidebar = (props: SidebarProps) => {
   const { className } = props;
@@ -36,6 +29,7 @@ export const Sidebar = (props: SidebarProps) => {
                 aria-disabled={label !== "Runs" ? true : undefined}
                 tabIndex={0}
                 title={label}
+                href="/"
               >
                 <Icon name={icon} />
                 <span className={s.sidebarLinkLabel}>{label}</span>
@@ -51,6 +45,7 @@ export const Sidebar = (props: SidebarProps) => {
           aria-disabled="true"
           tabIndex={0}
           title="Settings"
+          href="/"
         >
           <Icon name="settings" />
           <span className={s.sidebarLinkLabel}>Settings</span>

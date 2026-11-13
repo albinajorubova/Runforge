@@ -1,0 +1,25 @@
+.metadata {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin: 28px 0;
+  font-size: 13px;
+
+  dt {
+    margin-bottom: 8px;
+    font-weight: 600;
+  }
+
+  dd {
+    margin: 0;
+    overflow-wrap: anywhere;
+    line-height: 1.6;
+  }
+}
+
+@media (max-width: 600px) {
+  .metadata {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}

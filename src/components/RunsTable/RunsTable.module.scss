@@ -40,6 +40,12 @@
   }
 
   tbody {
+    tr {
+      @include hover {
+        background: var(--color-ivory);
+      }
+    }
+
     th,
     td {
       padding: 23px 20px;
@@ -161,4 +167,19 @@
   overflow: hidden;
   clip-path: inset(50%);
   white-space: nowrap;
+}
+
+.runsListName {
+  background: transparent;
+  border: 0;
+  padding: 0;
+  color: inherit;
+  font-weight: 600;
+  text-align: left;
+  cursor: pointer;
+
+  &:focus-visible {
+    outline: 2px solid var(--color-info);
+    outline-offset: 4px;
+  }
 }

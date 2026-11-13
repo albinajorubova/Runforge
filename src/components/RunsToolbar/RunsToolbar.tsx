@@ -1,12 +1,26 @@
 import clsx from "clsx";
 
+import { statusOptions } from "../../data/statusOptions";
+import type { StatusFilter } from "../../hooks/useUrlFilters";
 import { Icon } from "../Icon";
 import s from "./RunsToolbar.module.scss";
 
-export type RunsToolbarProps = { className?: string };
+export type RunsToolbarProps = {
+  className?: string;
+  query: string;
+  status: StatusFilter;
+  onQueryChange: (value: string) => void;
+  onStatusChange: (value: StatusFilter) => void;
+};
 
 export const RunsToolbar = (props: RunsToolbarProps) => {
-  const { className } = props;
+  const {
+    className,
+    query,
+    status: activeStatus,
+    onQueryChange,
+    onStatusChange,
+  } = props;
 
   return (
     <div className={clsx(s.runsToolbar, className)}>
@@ -14,22 +28,25 @@ export const RunsToolbar = (props: RunsToolbarProps) => {
         <Icon name="search" />
         <input
           type="search"
+          value={query}
+          onChange={(event) => onQueryChange(event.target.value)}
           aria-label="Search by run name or repository"
           placeholder="Search by run name or repository"
         />
       </div>
       <div className={s.runsToolbarFilters}>
-        {["All", "Queued", "Running", "Succeeded", "Failed"].map((status) => (
+        {statusOptions.map(({ value, label }) => (
           <button
             type="button"
-            key={status}
-            aria-pressed={status === "All"}
+            key={value}
+            onClick={() => onStatusChange(value)}
+            aria-pressed={value === activeStatus}
             className={clsx(
               s.runsToolbarFilter,
-              status === "All" && s.selected,
+              value === activeStatus && s.selected,
             )}
           >
-            {status}
+            {label}
           </button>
         ))}
       </div>
