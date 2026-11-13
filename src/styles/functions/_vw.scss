@@ -1,0 +1,11 @@
+@function vw($pixels) {
+  @return calc((#{$pixels} / var(--vw-screen)) * 100vw);
+}
+
+@function svh($pixels) {
+  @return calc((#{$pixels} / var(--viewport-min-height)) * 100svh);
+}
+
+@function min-viewport-size($pixels) {
+  @return min(#{svh($pixels)}, #{vw($pixels)});
+}
