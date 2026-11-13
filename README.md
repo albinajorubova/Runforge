@@ -18,11 +18,18 @@ pnpm install
 pnpm dev
 ```
 
-## Checks
+## Checks и test
 
 ```bash
+pnpm test
 pnpm check
 pnpm build
 ```
 
-Biome is intentionally configured with a minimal baseline in `biome.json` so it can be adjusted for the project conventions.
+## Структура
+
+- `src/App/` — главный экран и тесты.
+- `src/components/` — компоненты интерфейса.
+- `src/hooks/`, `src/services/`, `src/data/` — логика и данные запусков.
+- `src/model/` — типы данных.
+- `src/styles/` — общие стили.
